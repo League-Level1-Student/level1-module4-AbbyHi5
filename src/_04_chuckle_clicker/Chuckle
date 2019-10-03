@@ -1,0 +1,51 @@
+package chuckle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+public class Chuckle implements ActionListener {
+	JFrame frame = new JFrame("Random Joke Generator 3000");
+	JPanel panel = new JPanel();
+	JButton joke = new JButton("     Joke     ");
+	JButton punchline = new JButton( "     Punchline     ");
+	int num = 0;
+	public static void main(String[] args) {
+	Chuckle c = new Chuckle();	
+	c.run();
+	}
+	void run() {	
+	frame.setSize(500,500);
+	frame.setVisible(true);
+	panel.add(joke);
+	panel.add(punchline);
+	frame.add(panel);
+	frame.pack();
+	joke.addActionListener(this);
+	punchline.addActionListener(this);
+		}
+	public void actionPerformed(ActionEvent e) {
+		JButton buttonPressed = (JButton) e.getSource();
+		if(buttonPressed == joke) {
+			if(num == 0) {
+				JOptionPane.showMessageDialog(null,"What happens to a frog's car when it breaks down?" );
+			}
+			else if(num == 1) {
+				JOptionPane.showMessageDialog(null,"What’s the best thing about Switzerland?" );
+			}
+		}
+		else {
+			if(num == 0) {
+				JOptionPane.showMessageDialog(null,"It gets toad!" );
+				num++;
+			}
+			else if(num==1) {
+				JOptionPane.showMessageDialog(null, "I don’t know, but the flag is a big plus.");
+				num++;
+			}
+		}
+	}
+}

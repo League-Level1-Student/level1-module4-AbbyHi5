@@ -37,9 +37,11 @@ public class Jeopardy implements ActionListener {
 		// 2. Give your frame a title
 		frame.setName("Jeopardy");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		JPanel h = createHeader("Math");
+		JPanel h1 = createHeader("Math");
+		JPanel h2 = createHeader("Science");
 		// 4. Add the header component to the quizPanel
-		quizPanel.add(h);
+		quizPanel.add(h1);
+		quizPanel.add(h2);
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
@@ -51,7 +53,7 @@ public class Jeopardy implements ActionListener {
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-		JButton secondButton = createButton("400$");
+		JButton secondButton = createButton("200$");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
@@ -92,7 +94,7 @@ public class Jeopardy implements ActionListener {
 		// score should change.
 		// If the buttonPressed was the secondButton
 		if (buttonPressed == secondButton) {
-			askQuestion("What is 10+10(answer in words)?", "twenty", 400);
+			askQuestion("What is the chemical compound for water?", "H2O", 200);
 			secondButton.setText(null);
 		}
 		// Call the askQuestion() method with a harder question

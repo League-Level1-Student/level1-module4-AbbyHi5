@@ -1,26 +1,231 @@
-<!DOCTYPE html>
-<html>
-<title>Recipes</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://league-level0.github.io/style.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+package slot_machine;
 
-<script src="https://league-level0.github.io/copyrightFooter.js"></script>
-<body>
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-<script>
-window.onload=function(){document.location.href="http://central.jointheleague.org/levels/Level1/Mod4Recipes/SlotMachine.html"}
-</script>
-
- 
-
-<br><br><br><br><br><br><br><br><br>
-<div id="copyright">
-<script>
-copyright();
-</script>
-</div>
+public class Slot_Machine implements ActionListener {
+	JLabel s7;
+	JLabel sBar;
+	JLabel sCherry;
+	JLabel s72;
+	JLabel sBar2;
+	JLabel sCherry2;
+	JLabel s73;
+	JLabel sBar3;
+	JLabel sCherry3;
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton spin = new JButton("spin");
+	int pic1 = new Random().nextInt(3);
+	int pic2 = new Random().nextInt(3);
+	int pic3 = new Random().nextInt(3);
 	
-</body>
-</html>
+	public static void main(String[] args) {
+		Slot_Machine slot = new Slot_Machine();
+		slot.setup();
+	}
+
+	private void setup() {
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		spin.addActionListener(this);
+		try {
+			s7 = createLabelImage("7.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		{
+			try {
+				sBar = createLabelImage("bar.png");
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			sCherry = createLabelImage("cherry.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		try {
+			s72 = createLabelImage("7.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		{
+			try {
+				sBar2 = createLabelImage("bar.png");
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			sCherry2 = createLabelImage("cherry.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		try {
+			s73 = createLabelImage("7.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		{
+			try {
+				sBar3 = createLabelImage("bar.png");
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			sCherry3 = createLabelImage("cherry.png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		frame.setVisible(true);
+		frame.setSize(1000, 1000);
+		if (pic1 == 0) {
+			panel.add(s7);
+		} else if (pic1 == 1) {
+			panel.add(sBar);
+		} else if (pic1 == 2) {
+			panel.add(sCherry);
+		}
+		if (pic2 == 0) {
+			panel.add(s72);
+		} else if (pic2 == 1) {
+			panel.add(sBar2);
+		} else if (pic2 == 2) {
+			panel.add(sCherry2);
+		}
+		if (pic3 == 0) {
+			panel.add(s73);
+		} else if (pic3 == 1) {
+			panel.add(sBar3);
+		} else if (pic3 == 2) {
+			panel.add(sCherry3);
+		}
+		if (pic1 == pic2 && pic2 == pic3) {
+			System.out.println("WINNER!");
+		}
+		panel.add(spin);
+		frame.add(panel);
+		frame.pack();
+	}
+
+	private JLabel createLabelImage(String fileName) throws MalformedURLException {
+		URL imageURL = getClass().getResource(fileName);
+		if (imageURL == null) {
+			System.err.println("Could not find image " + fileName);
+			return new JLabel();
+		}
+		Icon icon = new ImageIcon(imageURL);
+		JLabel imageLabel = new JLabel(icon);
+		return imageLabel;
+	}
+
+	public void run() {
+		setup();
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		frame.remove(panel);
+		panel = new JPanel();
+		pic1 = new Random().nextInt(3);
+		pic2 = new Random().nextInt(3);
+		pic3 = new Random().nextInt(3);
+		JLabel s7 = null;
+		JLabel sBar = null;
+		JLabel sCherry = null;
+		JLabel s72 = null;
+		JLabel sBar2 = null;
+		JLabel sCherry2 = null;
+		JLabel s73 = null;
+		JLabel sBar3 = null;
+		JLabel sCherry3 = null;
+		try {
+			s7 = createLabelImage("7.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		{
+			try {
+				sBar = createLabelImage("bar.png");
+			} catch (MalformedURLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		try {
+			sCherry = createLabelImage("cherry.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			s72 = createLabelImage("7.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		{
+			try {
+				sBar2 = createLabelImage("bar.png");
+			} catch (MalformedURLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		try {
+			sCherry2 = createLabelImage("cherry.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			s73 = createLabelImage("7.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		{
+			try {
+				sBar3 = createLabelImage("bar.png");
+			} catch (MalformedURLException e1) {
+				e1.printStackTrace();
+			}
+		}
+		try {
+			sCherry3 = createLabelImage("cherry.png");
+		} catch (MalformedURLException e1) {
+			e1.printStackTrace();
+		}
+		if (pic1 == 0) {
+			panel.add(s7);
+		} else if (pic1 == 1) {
+			panel.add(sBar);
+		} else if (pic1 == 2) {
+			panel.add(sCherry);
+		}
+		if (pic2 == 0) {
+			panel.add(s72);
+		} else if (pic2 == 1) {
+			panel.add(sBar2);
+		} else if (pic2 == 2) {
+			panel.add(sCherry2);
+		}
+		if (pic3 == 0) {
+			panel.add(s73);
+		} else if (pic3 == 1) {
+			panel.add(sBar3);
+		} else if (pic3 == 2) {
+			panel.add(sCherry3);
+		}
+		if (pic1 == pic2 && pic2 == pic3) {
+			System.out.println("WINNER!");
+		}
+		panel.add(spin);
+		frame.add(panel);
+		frame.pack();
+	}
+}
